@@ -1,4 +1,4 @@
-package com.simecsystem.currencyconverter
+package com.simecsystem.currencyconverter.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +6,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import com.mynameismidori.currencypicker.ExtendedCurrency
+import com.simecsystem.currencyconverter.R
 
 
 class MainActivity : AppCompatActivity() {
