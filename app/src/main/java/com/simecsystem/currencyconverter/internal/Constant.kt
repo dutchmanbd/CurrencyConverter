@@ -2,10 +2,8 @@ package com.simecsystem.currencyconverter.internal
 
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import com.simecsystem.currencyconverter.data.db.CurrencyResponse
-import com.simecsystem.currencyconverter.data.db.MyCurrency
 
-object Utils {
+object Constant {
 
     private val jsonText = "{\n" +
             "  \"success\": true,\n" +
@@ -356,6 +354,10 @@ object Utils {
             "}"
 
     val currencyObject: JsonObject = Gson().fromJson(jsonObjectText, JsonObject::class.java)
+
+    const val BASE_URL = "http://data.fixer.io/api/"
+    const val API_KEY = "bcabe0564602029ab678adf96f188242"
+
 
     //fun convertToList() = Gson().fromJson(jsonText, CurrencyResponse::class.java)
 }

@@ -2,7 +2,6 @@ package com.simecsystem.currencyconverter.ui.home
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +12,7 @@ import com.simecsystem.currencyconverter.R
 import com.simecsystem.currencyconverter.internal.setAllClickListener
 import kotlinx.android.synthetic.main.home_fragment.*
 import com.mynameismidori.currencypicker.ExtendedCurrency
-import com.simecsystem.currencyconverter.data.db.CurrencyResponse
-import com.simecsystem.currencyconverter.internal.Utils
+import com.simecsystem.currencyconverter.internal.Constant
 
 
 class HomeFragment : Fragment() {
@@ -25,7 +23,7 @@ class HomeFragment : Fragment() {
     }
 
 //    private val currencyResponse: CurrencyResponse
-//        get() = Utils.convertToList()
+//        get() = Constant.convertToList()
 
     private val currencies: List<ExtendedCurrency>
         get() = ExtendedCurrency.getAllCurrencies()
@@ -139,8 +137,8 @@ class HomeFragment : Fragment() {
     private fun calculateCurrency(){
         val sourceAmount = tvFromCurrency.text.toString().toDouble()
 
-        val fromRate = Utils.currencyObject.get(tvFromCurrencyName.text.toString()).asDouble
-        val toRate = Utils.currencyObject.get(tvToCurrencyName.text.toString()).asDouble
+        val fromRate = Constant.currencyObject.get(tvFromCurrencyName.text.toString()).asDouble
+        val toRate = Constant.currencyObject.get(tvToCurrencyName.text.toString()).asDouble
 
         val targetAmount = (sourceAmount / fromRate) * toRate
 

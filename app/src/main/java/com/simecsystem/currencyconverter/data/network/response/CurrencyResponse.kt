@@ -1,4 +1,4 @@
-package com.simecsystem.currencyconverter.data.db
+package com.simecsystem.currencyconverter.data.network.response
 
 import com.google.gson.annotations.SerializedName
 
