@@ -103,15 +103,15 @@ class HomeFragment : Fragment() {
         }
 
         btn_point.setOnClickListener {
-            val text = tvFromCurrency.text.toString()
+            val text = tvFromCurrencyTitle.text.toString()
             if(!text.contains(".")){
-                tvFromCurrency.text = text.plus(".")
+                tvFromCurrencyTitle.text = text.plus(".")
                 calculateCurrency()
             }
         }
 
         btn_del.setOnClickListener {
-            tvFromCurrency.apply {
+            tvFromCurrencyTitle.apply {
                 if(text.length == 1)
                     text = "0"
                 else
@@ -121,7 +121,7 @@ class HomeFragment : Fragment() {
         }
 
         btn_clear.setOnClickListener {
-            tvFromCurrency.apply {
+            tvFromCurrencyTitle.apply {
                 text = "0"
             }
             calculateCurrency()
@@ -135,7 +135,7 @@ class HomeFragment : Fragment() {
 
 
     private fun calculateCurrency(){
-        val sourceAmount = tvFromCurrency.text.toString().toDouble()
+        val sourceAmount = tvFromCurrencyTitle.text.toString().toDouble()
 
         val fromRate = Constant.currencyObject.get(tvFromCurrencyName.text.toString()).asDouble
         val toRate = Constant.currencyObject.get(tvToCurrencyName.text.toString()).asDouble
@@ -147,13 +147,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun setToFromCurrency(value: Int) {
-        val prevText = tvFromCurrency.text.toString()
+        val prevText = tvFromCurrencyTitle.text.toString()
         val text = if(prevText == "0")
             "$value"
         else
-            "${tvFromCurrency.text}$value"
+            "${tvFromCurrencyTitle.text}$value"
 
-        tvFromCurrency.text = text
+        tvFromCurrencyTitle.text = text
 
         calculateCurrency()
     }
