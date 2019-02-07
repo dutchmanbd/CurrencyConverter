@@ -4,4 +4,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_settings">Settings</string>
+    <string name="txt_next">Next</string>
+    <string name="txt_prev">Prev</string>
+
+    <string name="txt_download_message">
+        Please connect internet and Download leatest currency from online for first time.
+    </string>
+    <string name="txt_be_patient">Please be patient.\nDownloading.....</string>
+    <string name="txt_download_currency">Download currency</string>
 </resources>

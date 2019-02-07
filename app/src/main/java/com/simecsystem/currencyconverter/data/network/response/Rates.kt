@@ -1,6 +1,7 @@
 package com.simecsystem.currencyconverter.data.network.response
 
 import com.google.gson.annotations.SerializedName
+import com.simecsystem.currencyconverter.data.db.entity.Rate
 
 data class Rates(
     @SerializedName("AED")

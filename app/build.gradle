@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'androidx.navigation.safeargs'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -90,6 +92,9 @@ dependencies {
 
     // Preference
     implementation "androidx.preference:preference:1.0.0"
+
+    //carousel
+    implementation 'com.synnapps:carouselview:0.1.5'
 
 //    // WeatherLocation
 //    implementation "com.google.android.gms:play-services-location:16.0.0"

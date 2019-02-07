@@ -2,10 +2,12 @@ package com.simecsystem.currencyconverter.ui.home
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.mynameismidori.currencypicker.CurrencyPicker
 
 import com.simecsystem.currencyconverter.R
@@ -13,22 +15,26 @@ import com.simecsystem.currencyconverter.internal.setAllClickListener
 import kotlinx.android.synthetic.main.home_fragment.*
 import com.mynameismidori.currencypicker.ExtendedCurrency
 import com.simecsystem.currencyconverter.internal.Constant
+import com.simecsystem.currencyconverter.ui.scope.ScopeFragment
+import kotlinx.coroutines.launch
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.x.closestKodein
+import org.kodein.di.generic.instance
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : ScopeFragment(), KodeinAware {
 
     companion object {
-        fun newInstance() = HomeFragment()
         val TAG = "HomeFragment"
     }
 
-//    private val currencyResponse: CurrencyResponse
-//        get() = Constant.convertToList()
+    override val kodein by closestKodein()
+    private val homeViewModelFactory: HomeViewModelFactory by instance()
+    private lateinit var viewModel: HomeViewModel
 
     private val currencies: List<ExtendedCurrency>
         get() = ExtendedCurrency.getAllCurrencies()
-
-    private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +45,10 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+
+        viewModel = ViewModelProviders.of(this@HomeFragment, homeViewModelFactory).get(HomeViewModel::class.java)
+
+        bindUI()
 
         val fromCurrency = ExtendedCurrency.getCurrencyByISO("BDT")
         val toCurrency = ExtendedCurrency.getCurrencyByISO("USD")
@@ -131,6 +140,16 @@ class HomeFragment : Fragment() {
             calculateCurrency()
         }
 
+    }
+
+    private fun bindUI() = launch {
+        val rateData = viewModel.getRates(false).value.await()
+
+        rateData.observe(this@HomeFragment, Observer {rates ->
+            if(rates == null) return@Observer
+
+            Log.d(TAG, rates.toString())
+        })
     }
 
 

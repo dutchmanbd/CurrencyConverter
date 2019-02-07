@@ -11,21 +11,20 @@ import com.simecsystem.currencyconverter.data.db.entity.Rate
     version = 1
 )
 abstract class CurrencyDatabase : RoomDatabase() {
-    abstract fun getCurrencyDao(): CurrencyDao
+    abstract fun currencyDao(): CurrencyDao
 
     companion object {
         @Volatile private var instance: CurrencyDatabase? = null
         private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
             instance ?: buildDatabase(context).also { instance = it }
         }
 
         private fun buildDatabase(context: Context) =
-                Room.databaseBuilder(
-                    context.applicationContext,
-                    CurrencyDatabase::class.java,
-                    "CurrencyContainer.db"
-                ).build()
+            Room.databaseBuilder(context.applicationContext,
+                CurrencyDatabase::class.java, "currencyContainer.db")
+                .build()
     }
+
 }

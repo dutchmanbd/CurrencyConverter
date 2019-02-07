@@ -1,5 +1,6 @@
 package com.simecsystem.currencyconverter.data.network.response
 
+import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 
 data class CurrencyResponse(
@@ -8,7 +9,7 @@ data class CurrencyResponse(
     @SerializedName("date")
     val date: String,
     @SerializedName("rates")
-    val rates: Rates,
+    val rates: JsonObject,
     @SerializedName("success")
     val success: Boolean,
     @SerializedName("timestamp")
