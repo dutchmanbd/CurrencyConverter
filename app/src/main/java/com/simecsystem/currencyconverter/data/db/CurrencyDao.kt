@@ -15,6 +15,6 @@ interface CurrencyDao {
     @Query("select * from Rate")
     fun getRates(): LiveData<List<Rate>>
 
-    @Query("select * from Rate where code = :code")
-    fun getRate(code: String): LiveData<Rate>
+    @Query("select * from Rate where code = :code1 or code = :code2")
+    fun getRate(code1: String, code2: String): LiveData<List<Rate>>
 }

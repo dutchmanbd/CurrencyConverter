@@ -2,26 +2,27 @@ package com.simecsystem.currencyconverter.data.network
 
 import android.content.Context
 import android.net.ConnectivityManager
+import com.simecsystem.currencyconverter.internal.ConnectivityChecker
 import com.simecsystem.currencyconverter.internal.NoConnectivityException
 import okhttp3.Interceptor
 import okhttp3.Response
 
 class ConnectivityInterceptorImpl(
-    context: Context
+    private val context: Context
 ) : ConnectivityInterceptor {
-    private val appContext = context.applicationContext
+    //private val appContext = context.applicationContext
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        if(!isOnline())
+        if(!ConnectivityChecker.isChecked(context))
             throw NoConnectivityException()
         return chain.proceed(chain.request())
     }
 
-    private fun isOnline(): Boolean{
-        val connectivityManager = appContext.getSystemService(Context.CONNECTIVITY_SERVICE)
-                    as ConnectivityManager
-        val networkInfo = connectivityManager.activeNetworkInfo
-
-        return networkInfo != null && networkInfo.isConnected
-    }
+//    private fun isOnline(): Boolean{
+//        val connectivityManager = appContext.getSystemService(Context.CONNECTIVITY_SERVICE)
+//                    as ConnectivityManager
+//        val networkInfo = connectivityManager.activeNetworkInfo
+//
+//        return networkInfo != null && networkInfo.isConnected
+//    }
 }

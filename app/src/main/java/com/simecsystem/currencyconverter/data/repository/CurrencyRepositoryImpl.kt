@@ -33,10 +33,10 @@ class CurrencyRepositoryImpl(
         }
     }
 
-    override suspend fun getRate(code: String): LiveData<Rate> {
+    override suspend fun getRate(code1: String, code2: String): LiveData<List<Rate>> {
         return withContext(Dispatchers.IO){
             //initCurrencyData()
-            return@withContext currencyDao.getRate(code)
+            return@withContext currencyDao.getRate(code1, code2)
         }
     }
 

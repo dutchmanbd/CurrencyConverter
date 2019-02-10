@@ -8,8 +8,17 @@
     <string name="txt_prev">Prev</string>
 
     <string name="txt_download_message">
-        Please connect internet and Download leatest currency from online for first time.
+        Please connect internet and download latest currency from online for first time.
     </string>
     <string name="txt_be_patient">Please be patient.\nDownloading.....</string>
     <string name="txt_download_currency">Download currency</string>
+    <string name="txt_default_currency">Default Currency</string>
+    <string name="txt_from_currency">From Currency</string>
+    <string name="txt_to_currency">To Currency</string>
+    <string name="txt_update">Update</string>
+    <string name="txt_last_update">Last update: 01-01-2019</string>
+    <string name="txt_point">Point</string>
+    <string name="txt_digit">4 digit</string>
+    <string name="txt_2_digit">2 digit</string>
+    <string name="txt_six_digit">6 digit</string>
 </resources>

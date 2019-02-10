@@ -12,7 +12,7 @@ class HomeViewModel(
         currencyRepository.getRates(isFromOnline)
     }
 
-    fun getRate(code: String) = lazyDeferred {
-        currencyRepository.getRate(code)
+    fun getRate(code1: String, code2: String) = lazyDeferred {
+        currencyRepository.getRate(code1, code2)
     }
 }

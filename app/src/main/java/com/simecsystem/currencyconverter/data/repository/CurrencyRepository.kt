@@ -5,5 +5,5 @@ import com.simecsystem.currencyconverter.data.db.entity.Rate
 
 interface CurrencyRepository {
     suspend fun getRates(isFetchedFromOnline: Boolean): LiveData<List<Rate>>
-    suspend fun getRate(code: String): LiveData<Rate>
+    suspend fun getRate(code1: String, code2: String): LiveData<List<Rate>>
 }

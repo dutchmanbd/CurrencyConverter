@@ -358,6 +358,12 @@ object Constant {
     const val BASE_URL = "http://data.fixer.io/api/"
     const val API_KEY = "bcabe0564602029ab678adf96f188242"
 
+    const val IS_ALREADY_DOWNLOAD_CURRENCY = "is_already_download_currency"
+    const val DEFAULT_CURRENCY_CODE_1 = "default_currency_code_1"
+    const val DEFAULT_CURRENCY_CODE_2 = "default_currency_code_2"
+    const val DEFAULT_FLOATING_POINT = "default_floating_point"
+    const val LAST_UPDATE_DATE = "last_update_date"
+
 
     //fun convertToList() = Gson().fromJson(jsonText, CurrencyResponse::class.java)
 }
