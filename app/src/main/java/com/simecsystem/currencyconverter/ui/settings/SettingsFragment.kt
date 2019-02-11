@@ -77,6 +77,7 @@ class SettingsFragment : ScopeFragment(), KodeinAware {
                 R.id.rbFourDigit -> 4
                 else -> 6
             }
+//            viewModel.updateFloatingPoint(point)
             sharedPref.write(Constant.DEFAULT_FLOATING_POINT, point)
         }
 
@@ -119,7 +120,8 @@ class SettingsFragment : ScopeFragment(), KodeinAware {
             picker.dismiss()
             tvFromCurrencyCode.text = code
             ivFromCurrency.setImageResource(flagDrawableResId)
-            sharedPref.write(Constant.DEFAULT_CURRENCY_CODE_1, code)
+//            viewModel.updateFromCurrencyCode(code)
+            sharedPref.write(Constant.DEFAULT_CURRENCY_NAME_1, name)
         }
         picker.show(activity!!.supportFragmentManager, "FROM_CURRENCY_PICKER")
     }
@@ -130,21 +132,30 @@ class SettingsFragment : ScopeFragment(), KodeinAware {
             picker.dismiss()
             tvToCurrencyCode.text = code
             ivToCurrency.setImageResource(flagDrawableResId)
-            sharedPref.write(Constant.DEFAULT_CURRENCY_CODE_2, code)
+//            viewModel.updateToCurrencyCode(code)
+            sharedPref.write(Constant.DEFAULT_CURRENCY_NAME_2, name)
         }
         picker.show(activity!!.supportFragmentManager, "FROM_CURRENCY_PICKER")
     }
 
     private fun updateFromAndToCurrency() {
-        val fromCurrencyCode = sharedPref.read(Constant.DEFAULT_CURRENCY_CODE_1, "BDT")
-        val toCurrencyCode = sharedPref.read(Constant.DEFAULT_CURRENCY_CODE_2, "USD")
+//        val fromCurrencyCode = sharedPref.read(Constant.DEFAULT_CURRENCY_NAME_1, "BDT")
+//        val toCurrencyCode = sharedPref.read(Constant.DEFAULT_CURRENCY_NAME_2, "USD")
+
+        val fromCurrencyName = sharedPref.read(Constant.DEFAULT_CURRENCY_NAME_1, "Bangladeshi Taka")
+        val toCurrencyName = sharedPref.read(Constant.DEFAULT_CURRENCY_NAME_2, "United States Dollar")
+
+
+//        val fromCurrency = ExtendedCurrency.getCurrencyByName(fromCurrencyName)
+//        val toCurrency = ExtendedCurrency.getCurrencyByName(toCurrencyName)
 
         val fromCurrency = ExtendedCurrency.getAllCurrencies().single{ currency ->
-            currency.code == fromCurrencyCode
+            currency.name == fromCurrencyName
         }
         val toCurrency = ExtendedCurrency.getAllCurrencies().single{ currency ->
-            currency.code == toCurrencyCode
+            currency.name == toCurrencyName
         }
+
 
         fromCurrency?.let { currency ->
             tvFromCurrencyCode.text = currency.code

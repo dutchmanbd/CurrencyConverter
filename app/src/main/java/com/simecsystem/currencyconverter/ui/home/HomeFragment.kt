@@ -150,6 +150,7 @@ class HomeFragment : ScopeFragment(), KodeinAware {
                 if(rates == null) return@Observer
 
                 val date = SimpleDateFormat("dd-MM-yyyy").format(Date())
+                //viewModel.updateDate(date)
                 sharedPref.write(Constant.LAST_UPDATE_DATE, date)
             })
         } catch (e: Exception){
@@ -159,14 +160,21 @@ class HomeFragment : ScopeFragment(), KodeinAware {
 
     private fun setupDefaultCurrency() {
 
-        val fromCurrencyCode = sharedPref.read(Constant.DEFAULT_CURRENCY_CODE_1, "BDT")
-        val toCurrencyCode = sharedPref.read(Constant.DEFAULT_CURRENCY_CODE_2, "USD")
+        val fromCurrencyName = sharedPref.read(Constant.DEFAULT_CURRENCY_NAME_1, "Bangladeshi Taka")
+        val toCurrencyName = sharedPref.read(Constant.DEFAULT_CURRENCY_NAME_2, "United States Dollar")
+
+        ExtendedCurrency.getAllCurrencies().forEach {
+            Log.d(TAG, "${it.name}: ${it.symbol}")
+        }
+
+//        val fromCurrency = ExtendedCurrency.getCurrencyByName(fromCurrencyName)
+//        val toCurrency = ExtendedCurrency.getCurrencyByName(toCurrencyName)
 
         val fromCurrency = ExtendedCurrency.getAllCurrencies().single{currency ->
-            currency.code == fromCurrencyCode
+            currency.name == fromCurrencyName
         }
         val toCurrency = ExtendedCurrency.getAllCurrencies().single{currency ->
-            currency.code == toCurrencyCode
+            currency.name == toCurrencyName
         }
 
         fromCurrency?.let { currency ->
@@ -227,7 +235,8 @@ class HomeFragment : ScopeFragment(), KodeinAware {
             picker.dismiss()
             tvFromCurrencyName.text = code
             ivFromFlag.setImageResource(flagDrawableResId)
-            sharedPref.write(Constant.DEFAULT_CURRENCY_CODE_1, code)
+            //viewModel.saveFromCurrencyCode(code)
+            sharedPref.write(Constant.DEFAULT_CURRENCY_NAME_1, name)
             Log.d(TAG, "from: $code")
         }
         picker.show(activity!!.supportFragmentManager, "FROM_CURRENCY_PICKER")
@@ -240,7 +249,8 @@ class HomeFragment : ScopeFragment(), KodeinAware {
             picker.dismiss()
             tvToCurrencyName.text = code
             ivToFlag.setImageResource(flagDrawableResId)
-            sharedPref.write(Constant.DEFAULT_CURRENCY_CODE_2, code)
+            //viewModel.saveToCurrencyCode(code)
+            sharedPref.write(Constant.DEFAULT_CURRENCY_NAME_2, name)
             Log.d(TAG, "to: $code")
         }
         picker.show(activity!!.supportFragmentManager, "TO_CURRENCY_PICKER")

@@ -43,12 +43,16 @@ class WelcomeActivity : ScopeActivity(), KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if(sharedPref.read(Constant.IS_ALREADY_DOWNLOAD_CURRENCY, false))
-            navigateToMainActivity()
+
+//        if(viewModel.isCurrencyDownloaded)
+//            navigateToMainActivity()
+//        if(sharedPref.read(Constant.IS_ALREADY_DOWNLOAD_CURRENCY, false))
+//            navigateToMainActivity()
 
         setContentView(R.layout.activity_welcome)
-
         viewModel = ViewModelProviders.of(this@WelcomeActivity, welcomeViewModelFactory).get(WelcomeViewModel::class.java)
+
+
 
         carouselView?.apply {
             pageCount = images.size
@@ -89,8 +93,9 @@ class WelcomeActivity : ScopeActivity(), KodeinAware {
                 btnNext.visibility = View.VISIBLE
                 val date = SimpleDateFormat("dd-MM-yyyy").format(Date())
                 sharedPref.write(Constant.LAST_UPDATE_DATE, date)
-
                 sharedPref.write(Constant.IS_ALREADY_DOWNLOAD_CURRENCY, true)
+//                viewModel.updateDate(date)
+//                viewModel.updateCurrencyDownloaded(true)
             })
         } catch (e: Exception){
             btnFetch.visibility = View.VISIBLE
