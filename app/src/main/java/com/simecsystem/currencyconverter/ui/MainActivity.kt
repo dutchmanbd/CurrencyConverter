@@ -1,5 +1,6 @@
 package com.simecsystem.currencyconverter.ui
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,19 +15,24 @@ import com.simecsystem.currencyconverter.R
 
 class MainActivity : AppCompatActivity() {
 
+    private val TAG = "MainActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolbar)
+        setupNavController()
+    }
 
+    private fun setupNavController(){
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
         setupBottomNavMenu(navController)
         setupSideNavMenu(navController)
         setupActionBar(navController)
-
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(drawer_layout,

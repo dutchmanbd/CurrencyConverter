@@ -2,6 +2,7 @@ package com.simecsystem.currencyconverter.ui.home
 
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -34,7 +35,7 @@ import java.util.*
 class HomeFragment : ScopeFragment(), KodeinAware {
 
     companion object {
-        val TAG = "HomeFragment"
+        const val TAG = "HomeFragment"
     }
 
     override val kodein by closestKodein()
@@ -54,13 +55,14 @@ class HomeFragment : ScopeFragment(), KodeinAware {
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         viewModel = ViewModelProviders.of(this@HomeFragment, homeViewModelFactory).get(HomeViewModel::class.java)
 
-        if(ConnectivityChecker.isChecked(context!!))
-            updateCurrencies()
+//        if(ConnectivityChecker.isChecked(context!!))
+//            updateCurrencies()
 
         setupDefaultCurrency()
 
@@ -140,6 +142,10 @@ class HomeFragment : ScopeFragment(), KodeinAware {
             calculateCurrency()
         }
 
+        ivSwap.setOnClickListener {
+            swapDefaultCurrency()
+        }
+
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -190,6 +196,34 @@ class HomeFragment : ScopeFragment(), KodeinAware {
 
     }
 
+    private fun swapDefaultCurrency(){
+
+        val fromCurrencyName = sharedPref.read(Constant.DEFAULT_CURRENCY_NAME_2, "United States Dollar")
+        val toCurrencyName = sharedPref.read(Constant.DEFAULT_CURRENCY_NAME_1, "Bangladeshi Taka")
+
+        sharedPref.write(Constant.DEFAULT_CURRENCY_NAME_1, fromCurrencyName)
+        sharedPref.write(Constant.DEFAULT_CURRENCY_NAME_2, toCurrencyName)
+
+        val fromCurrency = ExtendedCurrency.getAllCurrencies().single{currency ->
+            currency.name == fromCurrencyName
+        }
+        val toCurrency = ExtendedCurrency.getAllCurrencies().single{currency ->
+            currency.name == toCurrencyName
+        }
+
+        fromCurrency?.let { currency ->
+            tvFromCurrencyName.text = currency.code
+            ivFromFlag.setImageResource(currency.flag)
+        }
+
+        toCurrency?.let { currency ->
+            tvToCurrencyName.text = currency.code
+            ivToFlag.setImageResource(currency.flag)
+        }
+
+        calculateCurrency()
+
+    }
 
     private fun calculateCurrency() = launch{
         val defaultPoint = sharedPref.read(Constant.DEFAULT_FLOATING_POINT, 4)

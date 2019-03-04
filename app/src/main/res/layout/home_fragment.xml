@@ -366,4 +366,18 @@
         android:id="@+id/gpToCurrency"
         app:constraint_referenced_ids="tvToCurrencyName,tvToArraw,ivToFlag"/>
 
+    <ImageView
+        android:src="@drawable/ic_swap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivSwap"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvFromArrow"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvToArraw"
+        app:layout_constraintStart_toEndOf="@+id/ivFromFlag"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        android:layout_marginEnd="8dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
