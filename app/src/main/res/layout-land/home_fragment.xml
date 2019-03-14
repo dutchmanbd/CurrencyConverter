@@ -10,17 +10,17 @@
 
     <TextView
         android:id="@+id/tvFromCurrencyName"
-        android:text="BGD"
-        android:textStyle="bold"
-        android:textSize="18sp"
+        android:text="BDT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        android:layout_marginTop="8dp"/>
+        />
 
     <ImageView
         android:id="@+id/ivFromFlag"
@@ -37,20 +37,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.45"
+        app:layout_constraintGuide_percent="0.35"
         />
 
     <TextView
         android:id="@+id/tvToCurrencyName"
         android:text="USD"
-        android:textStyle="bold"
-        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/tvFromCurrencyName"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintStart_toStartOf="@+id/tvFromCurrencyName"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"/>
 
     <ImageView
@@ -84,9 +83,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:textStyle="bold"
-        android:textSize="20sp"
         android:text="0"
         android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivFromFlag"
@@ -96,12 +95,12 @@
         android:id="@+id/tvToCurrency"
         android:text="0"
         android:textStyle="bold"
-        android:textSize="20sp"
         android:textAlignment="textEnd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/ivToFlag"
@@ -111,6 +110,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#505050"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,11 +127,11 @@
                 android:id="@+id/btn_copy"
                 android:text="COPY"
                 android:textColor="@color/colorWhite"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_marginStart="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 />
 
             <Button
@@ -142,7 +142,7 @@
                 android:text="CLR"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 />
 
             <Button
@@ -153,7 +153,7 @@
                 android:text="DEL"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 />
 
             <Button
@@ -162,7 +162,7 @@
                 android:layout_marginEnd="2dp"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 />
 
         </TableRow>
@@ -182,7 +182,7 @@
                 android:text="6"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
             <Button
@@ -193,7 +193,7 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
             <Button
@@ -204,7 +204,7 @@
                 android:text="8"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
             <Button
@@ -215,7 +215,7 @@
                 android:text="9"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
         </TableRow>
@@ -235,7 +235,7 @@
                 android:text="2"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
             <Button
@@ -246,7 +246,7 @@
                 android:text="3"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
             <Button
@@ -257,7 +257,7 @@
                 android:layout_marginEnd="1dp"
                 android:layout_weight="1"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
             <Button
@@ -268,7 +268,7 @@
                 android:text="5"
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
 
@@ -289,7 +289,7 @@
                 android:layout_marginEnd="1dp"
                 android:layout_weight="1"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
 
@@ -301,7 +301,7 @@
                 android:layout_marginEnd="1dp"
                 android:layout_weight="1"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
             <Button
@@ -323,7 +323,7 @@
                 android:text="="
                 android:textColor="@color/colorWhite"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 />
 
 
@@ -338,9 +338,7 @@
         android:layout_height="wrap_content"
         android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
         app:layout_constraintStart_toEndOf="@+id/ivFromFlag"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintTop_toTopOf="@+id/ivFromFlag"
         app:layout_constraintBottom_toBottomOf="@+id/ivFromFlag"/>
 
@@ -350,9 +348,7 @@
         android:layout_height="wrap_content"
         android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
         app:layout_constraintStart_toEndOf="@+id/ivToFlag"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintTop_toTopOf="@+id/ivToFlag"
         app:layout_constraintBottom_toBottomOf="@+id/ivToFlag"/>
 
@@ -378,8 +374,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/tvToArraw"
         app:layout_constraintStart_toEndOf="@+id/ivFromFlag"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginStart="24dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

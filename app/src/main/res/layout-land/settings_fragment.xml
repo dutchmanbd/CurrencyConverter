@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.settings.SettingsFragment">
+
+
+    <TextView
+        android:id="@+id/tvSettingsTitle"
+        android:text="@string/txt_default_currency"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvFromCurrencyTitle"
+        android:text="@string/txt_from_currency"
+        android:textColor="@color/colorBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintStart_toStartOf="@+id/tvSettingsTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvSettingsTitle"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"/>
+
+    <TextView
+        android:id="@+id/tvFromCurrencyCode"
+        android:text="BDT"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintStart_toEndOf="@+id/ivFromCurrency"
+        app:layout_constraintTop_toTopOf="@+id/ivFromCurrency"
+        app:layout_constraintBottom_toBottomOf="@+id/ivFromCurrency"
+        app:layout_constraintEnd_toEndOf="@+id/tvFromCurrencyTitle"/>
+
+    <ImageView
+        android:id="@+id/ivFromCurrency"
+        android:src="@drawable/flag_bdt"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/tvFromCurrencyTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvFromCurrencyTitle"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gpFromCurrency"
+        app:constraint_referenced_ids="tvFromCurrencyCode,ivFromCurrency"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline4"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"/>
+
+    <TextView
+        android:id="@+id/tvToCurrencyTitle"
+        android:text="@string/txt_to_currency"
+        android:textColor="@color/colorBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFromCurrencyTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvFromCurrencyTitle"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivToCurrency"
+        android:src="@drawable/flag_usd"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="@+id/tvToCurrencyTitle"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvToCurrencyTitle"/>
+
+    <TextView
+        android:id="@+id/tvToCurrencyCode"
+        android:text="USD"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintStart_toEndOf="@+id/ivToCurrency"
+        app:layout_constraintTop_toTopOf="@+id/ivToCurrency"
+        app:layout_constraintBottom_toBottomOf="@+id/ivToCurrency"
+        app:layout_constraintEnd_toEndOf="@+id/tvToCurrencyTitle"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gpToCurrency"
+        app:constraint_referenced_ids="tvToCurrencyCode,ivToCurrency"/>
+
+    <TextView
+        android:id="@+id/tvUpdateTitle"
+        android:text="@string/txt_update"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintTop_toBottomOf="@+id/ivFromCurrency"
+        app:layout_constraintStart_toStartOf="@+id/ivFromCurrency"
+        />
+
+    <TextView
+        android:id="@+id/tvLastUpdateDate"
+        android:text="@string/txt_last_update"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintStart_toStartOf="@+id/tvUpdateTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvUpdateTitle"/>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:text="@string/txt_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        app:layout_constraintTop_toBottomOf="@+id/ivToCurrency"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvPointTitle"
+        android:text="@string/txt_point"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintTop_toBottomOf="@+id/tvLastUpdateDate"
+        app:layout_constraintStart_toStartOf="@+id/tvLastUpdateDate"
+        />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pbLoading"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/tvLoadingText"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/tvLoadingText"
+        android:text="@string/txt_be_patient"
+        android:textColor="@color/colorBlack"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pbLoading"
+        app:layout_constraintStart_toStartOf="@+id/pbLoading"
+        app:layout_constraintEnd_toEndOf="@+id/pbLoading"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/gpLoading"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvLoadingText,pbLoading"/>
+
+    <RadioGroup
+        android:id="@+id/rgPoint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:checkedButton="@id/rbFourDigit"
+        app:layout_constraintStart_toStartOf="@+id/tvPointTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPointTitle">
+
+        <RadioButton
+            android:id="@+id/rbTwoDigit"
+            android:text="@string/txt_2_digit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            />
+
+        <RadioButton
+            android:id="@+id/rbFourDigit"
+            android:text="@string/txt_digit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            />
+
+        <RadioButton
+            android:id="@+id/rbSixDigit"
+            android:text="@string/txt_six_digit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

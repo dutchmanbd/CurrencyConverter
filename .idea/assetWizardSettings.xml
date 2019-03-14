@@ -61,6 +61,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="ffffff" />
                                       <entry key="backgroundImage" value="$USER_HOME$/Desktop/background.png" />
                                       <entry key="foregroundImage" value="$USER_HOME$/Downloads/Currency converter_512_512.png" />
                                     </map>

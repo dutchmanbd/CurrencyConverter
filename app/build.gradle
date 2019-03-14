@@ -9,25 +9,41 @@ apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-kapt'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'simecsystemltd'
+            keyPassword 'simec2019'
+            storeFile file('/home/dutchman/AndroidStudioProjects/android_apk_keystore/simecsystemltd.keystore.jks')
+            storePassword 'simec2019'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.simecsystem.currencyconverter"
         minSdkVersion 18
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation 'com.google.android.material:material:1.1.0-alpha03'
@@ -36,33 +52,37 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-
     implementation 'com.github.midorikocak:currency-picker-android:1.1.9'
 
     // Navigation
+
     //noinspection GradleDependency
     implementation "android.arch.navigation:navigation-fragment:$navigation_version"
+
     //noinspection GradleDependency
     implementation "android.arch.navigation:navigation-ui:$navigation_version"
+
     //noinspection GradleDependency
     implementation "android.arch.navigation:navigation-fragment-ktx:$navigation_version"
+
     //noinspection GradleDependency
     implementation "android.arch.navigation:navigation-ui-ktx:$navigation_version"
 
     // Room
+
     //noinspection GradleDependency
     implementation "androidx.room:room-runtime:$room_version"
-    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha02'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-alpha02'
     kapt "androidx.room:room-compiler:$room_version"
 
     // Gson
-    implementation "com.google.code.gson:gson:2.8.5"
+    implementation 'com.google.code.gson:gson:2.8.5'
 
     // Kotlin Android Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -76,11 +96,12 @@ dependencies {
 
     // Kodein
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
+
     //noinspection GradleDependency
     implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
 
     // Better dateTime-time support even on older Android versions
-    implementation "com.jakewharton.threetenabp:threetenabp:1.1.0"
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.1.0'
 
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.8.0'
@@ -91,13 +112,12 @@ dependencies {
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.1.0'
 
     // Preference
-    implementation "androidx.preference:preference:1.0.0"
+    implementation 'androidx.preference:preference:1.0.0'
 
     //carousel
     implementation 'com.synnapps:carouselview:0.1.5'
 
-//    // WeatherLocation
-//    implementation "com.google.android.gms:play-services-location:16.0.0"
+    //    // WeatherLocation
 
-
+    //    implementation "com.google.android.gms:play-services-location:16.0.0"
 }
