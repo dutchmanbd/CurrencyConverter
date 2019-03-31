@@ -68,8 +68,7 @@ dependencies {
     //noinspection GradleDependency
     implementation "android.arch.navigation:navigation-ui-ktx:$navigation_version"
 
-    // Room
-
+    // Room Database
     //noinspection GradleDependency
     implementation "androidx.room:room-runtime:$room_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
